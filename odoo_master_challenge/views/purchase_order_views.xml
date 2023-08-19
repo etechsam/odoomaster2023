@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="to_approve_purchase_tree" model="ir.ui.view">
+            <field name="name">To approve purchase tee</field>
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase to approve" js_class="purchase_approve_all_list_view">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="create_uid"/>
+                    <field name="date_order"/>
+                    <field name="date_planned"/>
+                    <field name="payment_term_id"/>
+                    <field name="amount_total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="purchase_to_approve_action" model="ir.actions.act_window">
+            <field name="name">To approve</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="to_approve_purchase_tree"/>
+            <field name="context">{'purchase_approve_all': True}</field>
+        </record>
+
+        <menuitem id="purchase_to_approve_menu" name="To Approve" parent="purchase.menu_procurement_management"
+                  action="purchase_to_approve_action" sequence="20"/>
+
+    </data>
+</odoo>

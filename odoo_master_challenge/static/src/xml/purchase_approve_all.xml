@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+<t t-name="PurchaseApproveAll.Buttons" t-inherit="web.ListView.Buttons" t-inherit-mode="primary" owl="1">
+    <xpath expr="(//div/*)[last()]" position="after">
+        <button
+            type="button" class="btn btn-primary me-2" t-on-click="onClickApproveAll">
+            Approve All
+        </button>
+    </xpath>
+</t>
+
+</templates>
